@@ -3,6 +3,8 @@ FROM  php:${PHP_VERSION}-fpm-alpine
 
 ARG     PHPREDIS_VERSION="${PHPREDIS_VERSION:-4.2.0}"
 ENV     PHPREDIS_VERSION="${PHPREDIS_VERSION}"
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 ADD     https://github.com/phpredis/phpredis/archive/${PHPREDIS_VERSION}.tar.gz /tmp/
 
