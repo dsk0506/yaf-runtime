@@ -31,8 +31,6 @@ RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS \
 	&& docker-php-ext-enable yaf \
 	&& docker-php-ext-enable yar \
 	&& apk add nginx npm bash \
-	&& npm config set registry https://registry.npm.taobao.org --global \
-    && npm config set disturl https://npm.taobao.org/dist --global \
     && npm install pm2 -g \
     && rm -rf /usr/share/php \
     && rm -rf /tmp/* \
@@ -40,6 +38,7 @@ RUN apk add --no-cache --virtual .phpize-deps $PHPIZE_DEPS \
     && mkdir -p /run/nginx \
     && echo "daemon off;" >> /etc/nginx/nginx.conf \
     && cp /usr/local/etc/php/php.ini-production  /usr/local/etc/php/php.ini \
+    && mkdir /usr/local/php/bin \
     && echo 'yaf.environ=development' >> /usr/local/etc/php/php.ini \
     && ln -s /usr/local/bin/php  /usr/local/php/bin/php \
     && mkdir /app/data/udp_server/ \
