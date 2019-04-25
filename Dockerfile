@@ -70,8 +70,7 @@ RUN     apk update                       && \
             redis                                               \
             iconv                                               \
             gd                                                  \
-            sockets                                                  \
-            bcmath                                                  \
+            sockets                                             \
             memcached                                       &&  \
         \
         docker-php-ext-configure opcache --enable-opcache           &&  \
