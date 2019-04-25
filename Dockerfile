@@ -42,6 +42,7 @@ RUN     apk update                       && \
             libzip-dev                      \
             libssh2                         \
             libssh2-dev                     \
+            libmcrypt-dev                     \
             libxslt-dev                  && \
         \
         tar xfz /tmp/${PHPREDIS_VERSION}.tar.gz   && \
