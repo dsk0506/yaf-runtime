@@ -82,7 +82,7 @@ RUN     apk update                       && \
             apcu imagick yaf yar mcrypt                           &&  \
         \
         docker-php-ext-enable                                           \
-            apcu imagick                                            &&  \
+            apcu imagick yaf yar mcrypt                                 &&  \
         \
         apk del .build-dependencies                                 &&  \
         \
