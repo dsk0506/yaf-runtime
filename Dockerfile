@@ -79,7 +79,7 @@ RUN     apk update                       && \
         docker-php-ext-install opcache                              &&  \
         \
         pecl install                                                    \
-            apcu imagick yaf yar mcrypt                           &&  \
+            apcu imagick yaf yar channel://pecl.php.net/mcrypt-1.0.2  &&  \
         \
         docker-php-ext-enable                                           \
             apcu imagick yaf yar mcrypt                                 &&  \
