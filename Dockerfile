@@ -22,6 +22,7 @@ RUN     apk update                       && \
                 g++                         \
                 libtool                     \
                 make                        \
+                curl-dev                    \
                 pcre-dev                 && \
         \
         apk add --no-cache                  \
@@ -70,6 +71,7 @@ RUN     apk update                       && \
             iconv                                               \
             gd                                                  \
             sockets                                                  \
+            bcmath                                                  \
             memcached                                       &&  \
         \
         docker-php-ext-configure opcache --enable-opcache           &&  \
