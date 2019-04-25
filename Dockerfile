@@ -93,4 +93,15 @@ RUN     apk update                       && \
         rm -rf /tmp/* /var/cache/apk/* \
         && apk add nginx npm bash \
         && npm install pm2 -g \
+        && mkdir -p /run/nginx \
+        && echo "daemon off;" >> /etc/nginx/nginx.conf \
+        && mkdir -p /usr/local/php/bin/php  \
+        && ln -s /usr/local/bin/php  /usr/local/php/bin/php \
+        &&  sed -i -e "s/\/proc\/self\/fd\/2/\/app\/data\/fpm_error_log.log/g" /usr/local/etc/php-fpm.d/docker.conf \
+        && cp  /usr/local/etc/php/php.ini-production   /usr/local/etc/php/php.ini \
+        && echo "yaf.environ=development" >> /usr/local/etc/php/php.ini \
+        && sed -i -e "s/pm\s*=\s*dynamic/pm = static/g" /usr/local/etc/php-fpm.d/www.conf \
+        && sed -i -e "s/pm\.max_children\s*=\s*5/pm.max_children = 200/g" /usr/local/etc/php-fpm.d/www.conf
+
+
 
