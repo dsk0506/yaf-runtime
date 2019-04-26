@@ -95,7 +95,7 @@ RUN     apk update                       && \
         && npm install pm2 -g \
         && mkdir -p /run/nginx \
         && echo "daemon off;" >> /etc/nginx/nginx.conf \
-        && mkdir -p /usr/local/php/bin/php  \
+        && mkdir -p /usr/local/php/bin  \
         && ln -s /usr/local/bin/php  /usr/local/php/bin/php \
         &&  sed -i -e "s/\/proc\/self\/fd\/2/\/app\/data\/fpm_error_log.log/g" /usr/local/etc/php-fpm.d/docker.conf \
         && cp  /usr/local/etc/php/php.ini-production   /usr/local/etc/php/php.ini \
